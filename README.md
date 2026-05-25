@@ -2,7 +2,7 @@
 
 Binary text classification on tweets: predict whether a tweet describes a **real disaster** or not. Built as a hands-on NLP learning project using **PyTorch** and **Hugging Face Transformers**, with **fine-tuning** of a pre-trained **DistilBERT** model.
 
-> **Personal study reference:** [NLP_CONCEPTS.md](NLP_CONCEPTS.md) — concepts covered in this project, explained for later review.
+> **Personal study reference:** [docs/learning.md](docs/learning.md) — concepts covered in this project, explained for later review.
 
 ---
 
@@ -15,13 +15,13 @@ Social media posts about disasters are noisy and ambiguous. A keyword like “fi
 | `1` | Disaster-related tweet |
 | `0` | Not disaster-related |
 
-**Dataset:** ~7,600 labeled training tweets and ~3,200 unlabeled test tweets (`train.csv`, `test.csv`). Same structure as the popular [NLP with Disaster Tweets](https://www.kaggle.com/c/nlp-getting-started) Kaggle competition.
+**Dataset:** ~7,600 labeled training tweets and ~3,200 unlabeled test tweets ([`data/train.csv`](data/train.csv), [`data/test.csv`](data/test.csv)). Same structure as the popular [NLP with Disaster Tweets](https://www.kaggle.com/c/nlp-getting-started) Kaggle competition.
 
 ---
 
 ## What I Built
 
-End-to-end NLP pipeline in a Jupyter notebook (`Tweet_Classification.ipynb`):
+End-to-end NLP pipeline in [`src/Tweet_Classification.ipynb`](src/Tweet_Classification.ipynb):
 
 1. **Exploratory analysis** — class distribution, word clouds (before/after cleaning)
 2. **Text preprocessing** — custom cleaning for Twitter-style text
@@ -63,7 +63,7 @@ Tweets are normalized before tokenization: lowercase, remove URLs, mentions, HTM
 | Epochs | 3 |
 | Train/val split | 90% / 10%, stratified |
 | Device | GPU when available (Colab T4), else CPU |
-| Checkpoint | Best model by validation **F1** → `best_model.pt` |
+| Checkpoint | Best model by validation **F1** → `best_model.pt` (saved in notebook working directory) |
 
 ### Reproducibility
 
@@ -120,28 +120,33 @@ Training was run in Google Colab with GPU. Metrics can vary slightly by hardware
 
 ```
 .
-├── README.md                 # This file (project overview for recruiters)
-├── NLP_CONCEPTS.md           # Study notes — NLP concepts learned
-├── Tweet_Classification.ipynb
-├── train.csv
-├── test.csv
-└── best_model.pt             # Saved after training (generated in notebook)
+├── README.md
+├── docs/
+│   └── learning.md              # Study notes — NLP concepts learned
+├── src/
+│   └── Tweet_Classification.ipynb
+├── data/
+│   ├── train.csv
+│   └── test.csv
+└── best_model.pt                # Generated after training (optional; path depends on run cwd)
 ```
 
 ---
 
 ## How to Run
 
-1. Clone the repo and place `train.csv` / `test.csv` in the project root (included in this repo).
-2. Open `Tweet_Classification.ipynb` in Jupyter or [Google Colab](https://colab.research.google.com/).
-3. Install dependencies (notebook installs as needed):
+1. Clone the repo. Data files are in [`data/`](data/).
+2. Open [`src/Tweet_Classification.ipynb`](src/Tweet_Classification.ipynb) in Jupyter or [Google Colab](https://colab.research.google.com/).
+3. Run from `src/` (notebook loads data via `../data/train.csv` and `../data/test.csv`).
+
+4. Install dependencies (notebook installs as needed):
 
    ```bash
    pip install pandas numpy matplotlib seaborn torch scikit-learn transformers nltk wordcloud
    ```
 
-4. Run all cells top to bottom. GPU is recommended for fine-tuning (several minutes on T4 vs much longer on CPU).
-5. Optional: download NLTK stopwords when prompted by the word-cloud cells.
+5. Run all cells top to bottom. GPU is recommended for fine-tuning (several minutes on T4 vs much longer on CPU).
+6. Optional: download NLTK stopwords when prompted by the word-cloud cells.
 
 ---
 
@@ -166,4 +171,4 @@ Training was run in Google Colab with GPU. Metrics can vary slightly by hardware
 
 This project was built to **learn core NLP ideas** in practice: text cleaning, subword tokenization, pre-trained language models, and fine-tuning. Possible extensions (not implemented here): class-weighted loss for imbalance, learning-rate scheduling, early stopping, k-fold CV, or comparing against a non-transformer baseline (e.g. TF-IDF + logistic regression).
 
-For detailed concept explanations, see **[NLP_CONCEPTS.md](NLP_CONCEPTS.md)**.
+For detailed concept explanations, see **[docs/learning.md](docs/learning.md)**.

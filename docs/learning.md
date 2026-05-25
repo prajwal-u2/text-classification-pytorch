@@ -1,6 +1,6 @@
 # NLP Concepts — Study Reference
 
-Personal notes from the **Tweet Disaster Classification** project. Use this doc to revisit what each idea means and how it showed up in `Tweet_Classification.ipynb`.
+Personal notes from the **Tweet Disaster Classification** project. Use this doc to revisit what each idea means and how it showed up in [`src/Tweet_Classification.ipynb`](../src/Tweet_Classification.ipynb).
 
 ---
 
@@ -603,4 +603,4 @@ Useful for debugging and comparing experiments.
 
 ---
 
-*Last updated to match `Tweet_Classification.ipynb` pipeline (DistilBERT, PyTorch, 3 epochs, stratified 90/10 split).*
+*Last updated to match [`src/Tweet_Classification.ipynb`](../src/Tweet_Classification.ipynb) pipeline (DistilBERT, PyTorch, 3 epochs, stratified 90/10 split).*

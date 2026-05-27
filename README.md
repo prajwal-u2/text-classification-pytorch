@@ -19,6 +19,30 @@ Social media posts about disasters are noisy and ambiguous. A keyword like “fi
 
 ---
 
+## Word Clouds
+
+Word frequency visualization for disaster vs. non-disaster tweets, before and after text cleaning.
+
+**Before Cleaning**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/wordcloud_disaster.png" width="420"/><br/><sub>Disaster Tweets</sub></td>
+    <td align="center"><img src="assets/wordcloud_non_disaster.png" width="420"/><br/><sub>Non-Disaster Tweets</sub></td>
+  </tr>
+</table>
+
+**After Cleaning**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/wordcloud_cleaned_disaster.png" width="420"/><br/><sub>Cleaned Disaster Tweets</sub></td>
+    <td align="center"><img src="assets/wordcloud_cleaned_non_disaster.png" width="420"/><br/><sub>Cleaned Non-Disaster Tweets</sub></td>
+  </tr>
+</table>
+
+---
+
 ## What I Built
 
 End-to-end NLP pipeline in [`src/Tweet_Classification.ipynb`](src/Tweet_Classification.ipynb):
